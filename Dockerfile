@@ -51,6 +51,7 @@ RUN apt-get update \
         php-imagick \
         php-pear \
         tzdata \
+        xz-utils \
         unrar-free && locale-gen $LANG
 
 #ADD "https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-${S6_ARCH}.tar.gz" "/tmp/s6.tar.gz"
