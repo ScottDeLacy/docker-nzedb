@@ -23,35 +23,34 @@ RUN apt-get update \
         mediainfo \
         nginx-extras \
         p7zip-full \
-        php8.0 \
-        php8.0-cgi \
-        php8.0-cli \
-        php8.0-common \
-        php8.0-curl \
-        php8.0-gd \
-        php8.0-json \
-        php8.0-mysql \
-        php8.0-readline \
-        php8.0-recode \
-        php8.0-tidy \
-        php8.0-xml \
-        php8.0-xmlrpc \
-        php8.0-bcmath \
-        php8.0-bz2 \
-        php8.0-dba \
-        php8.0-fpm \
-        php8.0-intl \
-        php8.0-mbstring \
-        php8.0-mcrypt \
-        php8.0-soap \
-        php8.0-xsl \
-        php8.0-zip \
+        php7.0 \
+        php7.0-cgi \
+        php7.0-cli \
+        php7.0-common \
+        php7.0-curl \
+        php7.0-gd \
+        php7.0-json \
+        php7.0-mysql \
+        php7.0-readline \
+        php7.0-recode \
+        php7.0-tidy \
+        php7.0-xml \
+        php7.0-xmlrpc \
+        php7.0-bcmath \
+        php7.0-bz2 \
+        php7.0-dba \
+        php7.0-fpm \
+        php7.0-intl \
+        php7.0-mbstring \
+        php7.0-mcrypt \
+        php7.0-soap \
+        php7.0-xsl \
+        php7.0-zip \
         php-imagick \
         php-pear \
         tzdata \
-        unrar-free \
-
-    && locale-gen $LANG
+        unrar \
+        unrar-free && locale-gen $LANG
 
 ADD "https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-${S6_ARCH}.tar.gz" "/tmp/s6.tar.gz"
 RUN tar xfz /tmp/s6.tar.gz -C /
