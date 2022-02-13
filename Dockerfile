@@ -54,8 +54,8 @@ RUN apt-get update \
         unrar-free && locale-gen $LANG
 
 #ADD "https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-${S6_ARCH}.tar.gz" "/tmp/s6.tar.gz"
-ADD "https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-${S6_ARCH}-${S6_FILEVERSION}.tar.xz" "/tmp/s6.tar.gz"
-RUN tar xfz /tmp/s6.tar.gz -C /
+ADD "https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-${S6_ARCH}-${S6_FILEVERSION}.tar.xz" "/tmp/s6.tar.xz"
+RUN tar xfz /tmp/s6.tar.xz -C /
 RUN apt-get clean \
     && rm -rf \
         /tmp/* \
