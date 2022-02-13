@@ -4,7 +4,7 @@
 FROM debian:stretch-slim
 MAINTAINER https://github.com/ScottDeLacy
 
-ARG S6_VERSION="v1.19.1.1"
+ARG S6_VERSION="v3.0.0.2"
 ARG S6_ARCH="amd64"
 ARG DEBIAN_FRONTEND="noninteractive"
 ARG LANG="en_US.UTF-8"
@@ -49,7 +49,7 @@ RUN apt-get update \
         php-imagick \
         php-pear \
         tzdata \
-        unrar \
+        unrar-free \
 
     && locale-gen $LANG
 
