@@ -5,7 +5,8 @@ FROM debian:stretch-slim
 MAINTAINER https://github.com/ScottDeLacy
 
 ARG S6_VERSION="v3.0.0.2"
-ARG S6_ARCH="amd64"
+#ARG S6_ARCH="amd64"
+ARG S6_ARCH="x86_64"
 ARG DEBIAN_FRONTEND="noninteractive"
 ARG LANG="en_US.UTF-8"
 ARG LC_ALL="C.UTF-8"
@@ -51,7 +52,8 @@ RUN apt-get update \
         tzdata \
         unrar-free && locale-gen $LANG
 
-ADD "https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-${S6_ARCH}.tar.gz" "/tmp/s6.tar.gz"
+#ADD "https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-${S6_ARCH}.tar.gz" "/tmp/s6.tar.gz"
+ADD "https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-${S6_ARCH}-${S6_VERSION}.tar.xz" "/tmp/s6.tar.gz"
 RUN tar xfz /tmp/s6.tar.gz -C /
 RUN apt-get clean \
     && rm -rf \
