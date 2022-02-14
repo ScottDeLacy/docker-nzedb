@@ -6,7 +6,7 @@ MAINTAINER https://github.com/ScottDeLacy
 
 ARG S6_VERSION="v3.0.0.2"
 ARG S6_FILEVERSION="3.0.0.2" #file names dont have v{version number} and this is easier than another run command
-#ARG S6_ARCH="amd64"
+#ARG S6_ARCH="amd64" staticly set. Follows version #
 ARG S6_ARCH="x86_64"
 ARG DEBIAN_FRONTEND="noninteractive"
 ARG LANG="en_US.UTF-8"
@@ -53,11 +53,13 @@ RUN apt-get update \
         tzdata \
         xz-utils \
         unrar-free && locale-gen $LANG
-
-#ADD "https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-${S6_ARCH}.tar.gz" "/tmp/s6.tar.gz"
-ADD "https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-${S6_ARCH}-${S6_FILEVERSION}.tar.xz" "/tmp/s6.tar.xz"
+        
+#required noarch primary build to place ./init otherwise it doesnt exist. Also requires full suite, install scripts depend on 'suexec'.
+ADD "https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-noarch-${S6_FILEVERSION}.tar.gz" "/tmp/s6-noarch-${S6_FILEVERSION}.tar.gz"
+ADD "https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-${S6_ARCH}-${S6_FILEVERSION}.tar.xz" "/tmp/s6-${S6_ARCH}-${S6_FILEVERSION}.tar.xz"
 # change extract code
-RUN tar xf /tmp/s6.tar.xz -C /
+RUN tar xf /tmp/s6-${S6_ARCH}-${S6_FILEVERSION}.tar.xz -C /
+RUN tar xf /tmp/s6-noarch-${S6_FILEVERSION}.tar.gz -C /
 RUN apt-get clean \
     && rm -rf \
         /tmp/* \
