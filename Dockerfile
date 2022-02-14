@@ -55,7 +55,7 @@ RUN apt-get update \
         unrar-free && locale-gen $LANG
         
 #required noarch primary build to place ./init otherwise it doesnt exist. Also requires full suite, install scripts depend on 'suexec'.
-ADD "https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-noarch-${S6_FILEVERSION}.tar.gz" "/tmp/s6-noarch-${S6_FILEVERSION}.tar.gz"
+ADD "https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-noarch-${S6_FILEVERSION}.tar.xz" "/tmp/s6-noarch-${S6_FILEVERSION}.tar.gz"
 ADD "https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-${S6_ARCH}-${S6_FILEVERSION}.tar.xz" "/tmp/s6-${S6_ARCH}-${S6_FILEVERSION}.tar.xz"
 # change extract code
 RUN tar xf /tmp/s6-${S6_ARCH}-${S6_FILEVERSION}.tar.xz -C /
