@@ -76,5 +76,7 @@ RUN apt-get clean \
 EXPOSE 80 443
 HEALTHCHECK NONE
 COPY rootfs/ /
+# default S6 timeout = 5000 (5 sec) not long enough. Timeout kills legacy install scripts
+ENV S6_CMD_WAIT_FOR_SERVICES_MAXTIME="0"
 ENTRYPOINT ["/init"]
 
