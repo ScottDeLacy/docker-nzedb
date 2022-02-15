@@ -5,15 +5,23 @@ __check_status;
 echo "================================================================================"
 echo "Installing YYDecode."
 echo "================================================================================"
-echo "=== Downloading ..."
-curl -s -L -o /tmp/yydecode.deb 'http://archive.getdeb.net/ubuntu/pool/apps/y/yydecode/yydecode_0.2.10-1~getdeb1_amd64.deb' 2>&1 > /dev/null || __exit 14;
-echo "--- Done."
-echo ""
-echo "=== Installing ..."
-dpkg --install /tmp/yydecode.deb || __exit 15;
-rm /tmp/yydecode.deb
+echo "=== Extracting ..."
+
+
+cd /yydecode
+
+tar -xzf yydecode-0.2.10.tar.gz
+cd yydecode-0.2.10/
+./configure
+make
+sudo make install
+make clean
+cd ~/
+rm -rf /yydecode
+
+
+
 echo "--- Done."
 hash -r;
 echo ""
 __exit 0;
-
