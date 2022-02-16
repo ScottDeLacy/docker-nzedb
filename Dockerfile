@@ -55,7 +55,7 @@ RUN apt-get update \
 		php7.1-mcrypt \
 		php7.1-mysql \
 		php7.1-opcache \
-		php7.1-pear \
+		php-pear \ #correct target?
 		php7.1-pgsql \
 		php7.1-readline \
 		php7.1-recode \
