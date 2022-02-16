@@ -13,7 +13,7 @@ php -r 'if (hash_file("SHA384", "composer-setup.php") === preg_filter(":^.*?<pre
 echo "--- Done."
 echo ""
 echo "=== Running setup ..."
-php composer-setup.php --install-dir=/usr/local/bin --filename=composer;
+php composer-setup.php --install-dir=/usr/local/bin --version=1.7.0 --filename=composer;
 echo "--- Done."
 echo ""
 echo "=== Deleting setup files ..."
