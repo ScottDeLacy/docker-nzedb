@@ -5,7 +5,7 @@ echo "==========================================================================
 echo "Installing composer."
 echo "================================================================================"
 echo "=== Downloading ..."
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" || __exit 1;
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php --version=1.7.0');" || __exit 1;
 echo "--- Done."
 echo ""
 echo "=== Verifying ..."
