@@ -14,45 +14,60 @@ ARG LC_ALL="C.UTF-8"
 ARG LANGUAGE="en_US.UTF-8"
 ARG TERM="xterm-256color"
 
+
+# Upgraded php from 7.0 to 7.1. Tested php 7.2-8.1 > required packages not available / missing. Unsure what is/is not required for nzedb. Might take some effort to get 7.2-7.4 working
+
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get -y install apt-utils locales\
     && DEBIAN_FRONTEND=noninteractive apt-get -y install \
+#    lsb-release ca-certificates apt-transport-https software-properties-common gnupg2 wget \
+#    && wget -qO /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
+#    && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > '/etc/apt/sources.list.d/php.list' \
+#    && apt-get update && apt-get -y install \
         curl \
         ffmpeg \
+        gcc \
         gettext-base \
         git \
         libtext-micromason-perl \
+        make \
         mediainfo \
         nginx-extras \
         p7zip-full \
-        php7.0 \
-        php7.0-cgi \
-        php7.0-cli \
-        php7.0-common \
-        php7.0-curl \
-        php7.0-gd \
-        php7.0-json \
-        php7.0-mysql \
-        php7.0-readline \
-        php7.0-recode \
-        php7.0-tidy \
-        php7.0-xml \
-        php7.0-xmlrpc \
-        php7.0-bcmath \
-        php7.0-bz2 \
-        php7.0-dba \
-        php7.0-fpm \
-        php7.0-intl \
-        php7.0-mbstring \
-        php7.0-mcrypt \
-        php7.0-soap \
-        php7.0-xsl \
-        php7.0-zip \
-        php-imagick \
-        php-pear \
+        php7.1 \
         tzdata \
+        unrar-free \
         xz-utils \
-        unrar-free && locale-gen $LANG
+            php7.1-bcmath \
+            php7.1-bz2 \
+            php7.1-cgi \
+            php7.1-cli \
+            php7.1-common \
+            php7.1-curl \
+            php7.1-dba \
+            php7.1-fpm \
+            php7.1-gd \
+            php7.1-imagick \
+            php7.1-intl \
+            php7.1-json \
+            php7.1-ldap \
+            php7.1-mbstring \
+            php7.1-mcrypt \
+            php7.1-mysql \
+            php7.1-opcache \
+            php7.1-pear \
+            php7.1-pgsql \
+            php7.1-readline \
+            php7.1-recode \
+            php7.1-soap \
+            php7.1-tidy \
+            php7.1-xml \
+            php7.1-xmlrpc \
+            php7.1-xsl \
+            php7.1-zip \
+        && locale-gen $LANG
+
+#make, gcc, wget can probably be removed later
         
 #required noarch primary build to place ./init otherwise it doesnt exist. Also requires full suite, install scripts depend on 'suexec'.
 ADD "https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-noarch-${S6_FILEVERSION}.tar.xz" "/tmp/s6-noarch-${S6_FILEVERSION}.tar.xz"
