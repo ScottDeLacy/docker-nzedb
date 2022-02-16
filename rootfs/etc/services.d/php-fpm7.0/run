@@ -1,4 +1,4 @@
 #!/usr/bin/with-contenv bash
 echo "Starting PHP-FPM";
-exec /usr/sbin/php-fpm7.0 -F
+exec /usr/sbin/php-fpm7.1 -F
 
