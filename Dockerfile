@@ -20,10 +20,10 @@ ARG TERM="xterm-256color"
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get -y install apt-utils locales\
     && DEBIAN_FRONTEND=noninteractive apt-get -y install \
-#    lsb-release ca-certificates apt-transport-https software-properties-common gnupg2 wget \
-#    && wget -qO /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
-#    && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > '/etc/apt/sources.list.d/php.list' \
-#    && apt-get update && apt-get -y install \
+    lsb-release ca-certificates apt-transport-https software-properties-common gnupg2 wget \
+    && wget -qO /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
+    && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > '/etc/apt/sources.list.d/php.list' \
+    && apt-get update && apt-get -y install \
         curl \
         ffmpeg \
         gcc \
@@ -38,33 +38,33 @@ RUN apt-get update \
         tzdata \
         unrar-free \
         xz-utils \
-            php7.1-bcmath \
-            php7.1-bz2 \
-            php7.1-cgi \
-            php7.1-cli \
-            php7.1-common \
-            php7.1-curl \
-            php7.1-dba \
-            php7.1-fpm \
-            php7.1-gd \
-            php7.1-imagick \
-            php7.1-intl \
-            php7.1-json \
-            php7.1-ldap \
-            php7.1-mbstring \
-            php7.1-mcrypt \
-            php7.1-mysql \
-            php7.1-opcache \
-            php7.1-pear \
-            php7.1-pgsql \
-            php7.1-readline \
-            php7.1-recode \
-            php7.1-soap \
-            php7.1-tidy \
-            php7.1-xml \
-            php7.1-xmlrpc \
-            php7.1-xsl \
-            php7.1-zip \
+		php7.1-bcmath \
+		php7.1-bz2 \
+		php7.1-cgi \
+		php7.1-cli \
+		php7.1-common \
+		php7.1-curl \
+		php7.1-dba \
+		php7.1-fpm \
+		php7.1-gd \
+		php7.1-imagick \
+		php7.1-intl \
+		php7.1-json \
+		php7.1-ldap \
+		php7.1-mbstring \
+		php7.1-mcrypt \
+		php7.1-mysql \
+		php7.1-opcache \
+		php7.1-pear \
+		php7.1-pgsql \
+		php7.1-readline \
+		php7.1-recode \
+		php7.1-soap \
+		php7.1-tidy \
+		php7.1-xml \
+		php7.1-xmlrpc \
+		php7.1-xsl \
+		php7.1-zip \
         && locale-gen $LANG
 
 #make, gcc, wget can probably be removed later
