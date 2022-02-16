@@ -1,3 +1,8 @@
+WIP - broken.
+
+
+------------ from fork --------------.
+
 nZEDb container based on nZEDb from https://github.com/nZEDb/nZEDb
 This image is able to run under a different web root than "/". E.g. https://your.server/nzedb/
 
